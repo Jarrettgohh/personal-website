@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/main.f250c013.js","mappings":"AAAAA,OAAOC,SAASC,OAAO","sources":["index.js"],"sourcesContent":["window.location.assign(\"https://jarrett.gohxiangzheng.com\");\n"],"names":["window","location","assign"],"sourceRoot":""}
