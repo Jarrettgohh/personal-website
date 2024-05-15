@@ -1,42 +1,28 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import React from "react";
 
 function App() {
-  const AllRoutes = () => {
-    window.location.assign("https://jarrett.gohxiangzheng.com/");
-    return null;
-  };
+  React.useEffect(() => {
+    const href = window.location.href;
+    const origin = window.location.origin;
 
-  const MobileAppProject = () => {
-    window.location.assign(
-      "https://jarrett.gohxiangzheng.com/projects/mobile-app-project"
-    );
-    return null;
-  };
+    const path = href.replace(origin, "").replace(/\/$/, "");
 
-  const OnePABadmintonCourtsFinder = () => {
-    window.location.assign(
-      "https://jarrett.gohxiangzheng.com/projects/onepa-badminton-courts-finder-automation"
-    );
-    return null;
-  };
+    switch (path) {
+      case "/":
+        window.location.assign("https://jarrett.gohxiangzheng.com/");
+        break;
 
-  return (
-    <HashRouter>
-      <Routes>
-        <Route
-          path="/projects/mobile-app-project"
-          element={<MobileAppProject />}
-        />
+      case "/personal-website/#/projects/mobile-app-project":
+        window.location.assign(
+          "https://jarrett.gohxiangzheng.com/projects/mobile-app-project"
+        );
+        break;
 
-        <Route
-          path="/projects/onepa-badminton-courts-finder"
-          element={<OnePABadmintonCourtsFinder />}
-        />
-
-        <Route path="*" element={<AllRoutes />} />
-      </Routes>
-    </HashRouter>
-  );
+      default:
+        window.location.assign("https://jarrett.gohxiangzheng.com/");
+        break;
+    }
+  }, []);
 }
 
 export default App;
